@@ -1,2 +1,6 @@
 ---
-# defaults file for ansible-role-docker-swarm-init
+# e.g. docker_swarm_interface: "eth0"
+# docker_swarm_interface: "{{ ansible_default_ipv4['interface'] }}"
+docker_swarm_interface: "enp0s8"
+docker_swarm_manager_addr: "{{ hostvars[groups['swarm_managers'][0]]['ansible_' + docker_swarm_interface ]['ipv4']['address'] }}"
+docker_swarm_advertise_addr: "{{ hostvars[inventory_hostname]['ansible_' + docker_swarm_interface ]['ipv4']['address'] }}"

@@ -1,16 +1,21 @@
 # ansible-role-docker-swarm-init
 ### Sample inventory file
 
-```sh
-[nodes]
-node-1      ansible_host=XXX.XXX.XXX.XXX
-node-2      ansible_host=XXX.XXX.XXX.XXX
-node-3      ansible_host=XXX.XXX.XXX.XXX
-node-4      ansible_host=XXX.XXX.XXX.XXX
+```yaml
+nodes:
+  hosts:
+    node1:
+    node2:
+    node3:
+    node4:
 
-[swarm_manager]
-node-1
+swarm_managers:
+  hosts:
+    node1:
 
-[workers]
-node-[2:4]
+swarm_workers:
+  hosts:
+    node2:
+    node3:
+    node4:
 ```
